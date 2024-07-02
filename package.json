@@ -12,7 +12,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "build:ui": "rm -rf dist && cd /Users/hosut/Downloads/Fullstack/deploy/notes-frontend && npm run build && cp -r dist /Users/hosut/Downloads/Fullstack/deploy/notes-deploy",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "author": "Matti Luukkainen",
   "license": "MIT",
