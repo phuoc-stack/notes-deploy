@@ -58,6 +58,26 @@ let notes = [
     }
   })
 
+  ///update a note by ID
+  app.put('/api/notes/:id', (request, response) => {
+    //extract note id from the request parameters
+    const id = request.params.id;
+    //retrieve the updated note object from the request
+    const updatedNote=request.body;
+
+    //find the note by id and update its properties
+    const index=notes.findIndex(note=>note.id===id);
+
+    if(index!==-1){
+      //if the note with given ID is found, update its properties by mergin
+      notes[index]={ ...notes[index], ...updatedNote };
+      response.json(notes[index]);
+    } else {
+      response.status(404).json({error: 'Note not found'})
+    }
+  });
+  
+
   app.delete('/api/notes/:id',(request,response)=>{
     const id=request.params.id
     //if deleting the resource is successful (the note exists and is removed), 
