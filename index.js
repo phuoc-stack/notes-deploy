@@ -6,7 +6,7 @@ const app = express()
 //handler is called. Without it, the body property is undefined
 app.use(express.json())
 const cors = require('cors')
-
+app.use(express.static('dist'))
 app.use(cors())
 
 let notes = [
