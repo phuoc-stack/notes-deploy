@@ -69,7 +69,7 @@ let notes = [
     const index=notes.findIndex(note=>note.id===id);
 
     if(index!==-1){
-      //if the note with given ID is found, update its properties by mergin
+      //if the note with given ID is found, update its properties by merging
       notes[index]={ ...notes[index], ...updatedNote };
       response.json(notes[index]);
     } else {
